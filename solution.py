@@ -93,10 +93,8 @@ def get_img(im, point, mask):
     img = im[point[0]-d:point[0]+d+1, point[1]-d:point[1]+d+1]
     return img
 
-
-kernel = disk(1)
-image = read_png('3_checkerboard.png')
 image = np.squeeze(image)
+kernel = disk(1)
 w = image.shape[0]
 h = image.shape[1]
 
@@ -108,16 +106,14 @@ new_image = image
 for i in range(w-1):
     if (i >= d) & (i <= w - d):
         for t in range(h-1):
-            if (t >= d) & (t <= h - d):
-                image = read_png('3_checkerboard.png')
-                image = np.squeeze(image)
+            if (t >= d) & (t <= h - d)
                 k = get_img(image, (i, t), kernel)
                 new_image[i, t] = erode(kernel, k)
 
 
 
 
-write_png(new_image, 'results/erosion3.png')
+write_png(new_image, 'results/erosion.png')
 
     return new_image
 
@@ -157,8 +153,6 @@ def get_img(im, point, mask):
     return img
 
 
-kernel = disk(2)
-image = read_png('3_checkerboard.png')
 image = np.squeeze(image)
 w = image.shape[0]
 h = image.shape[1]
@@ -180,6 +174,6 @@ for i in range(w-1):
 
 
 
-write_png(new_image, 'results/erosion3.png')
+write_png(new_image, 'results/erosion.png')
 
     return new_image
